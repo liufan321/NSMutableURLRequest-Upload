@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "AFNetworking.h"
 #import "NSMutableURLRequest+Upload.h"
 
 @interface ViewController ()
@@ -26,7 +27,43 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    [self demo4];
+    [self demo6];
+}
+
+#pragma mark - AFN Upload Multifiles
+// MARK: - AFN AFHTTPRequestOperationManager 上传多个文件，并指定保存在服务器的文件名
+- (void)demo6 {
+    NSURL *url = [NSURL URLWithString:@"http://localhost/post/upload-m.php"];
+    
+    NSArray *fileURLs = @[[[NSBundle mainBundle] URLForResource:@"111" withExtension:nil],
+                          [[NSBundle mainBundle] URLForResource:@"222" withExtension:nil]];
+    NSArray *fileNames = @[@"abc.txt", @"bcd.txt"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url fileURLs:fileURLs fileNames:fileNames name:@"userfile"];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPRequestOperation *op = [manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"%@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"%@", error);
+    }];
+    [manager.operationQueue addOperation:op];
+}
+
+// MARK: - AFN AFHTTPSessionManager 上传多个文件，并指定保存在服务器的文件名
+- (void)demo5 {
+    NSURL *url = [NSURL URLWithString:@"http://localhost/post/upload-m.php"];
+    
+    NSArray *fileURLs = @[[[NSBundle mainBundle] URLForResource:@"111" withExtension:nil],
+                          [[NSBundle mainBundle] URLForResource:@"222" withExtension:nil]];
+    NSArray *fileNames = @[@"abc.txt", @"bcd.txt"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url fileURLs:fileURLs fileNames:fileNames name:@"userfile"];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [[manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        NSLog(@"%@", responseObject);
+    }] resume];
 }
 
 #pragma mark - POST Upload Demo
