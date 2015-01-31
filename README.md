@@ -48,11 +48,10 @@ Content-Type: application/octet-stream\n\n
 ```
 
 #### 参数说明
-| 名称 | 说明 |
-| -- | -- |
-| boundary | 有字母和数字组成的随机字符串 |
-| **userfile** | 服务器脚本中负责上传文件的字段名 |
-| filename | 保存在服务器上的文件名 |
+
+- boundary: 有字母和数字组成的随机字符串
+- **userfile**: 服务器脚本中负责上传文件的字段名
+- filename: 保存在服务器上的文件名
 
 ### 上传多个文件
 
@@ -71,8 +70,7 @@ Content-Type: application/octet-stream\n\n
 ```
 
 #### 参数说明
-| 名称 | 说明 |
-| -- | -- |
-| boundary | 有字母和数字组成的随机字符串 |
-| **userfile[]** | 服务器脚本中负责上传文件的字段名 |
-| filename | 保存在服务器上的文件名 |
+
+- boundary: 有字母和数字组成的随机字符串
+- **userfile[]**: 服务器脚本中负责上传文件的字段名
+- filename: 保存在服务器上的文件名
