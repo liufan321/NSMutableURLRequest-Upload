@@ -10,6 +10,14 @@
 
 @implementation NSMutableURLRequest (Upload)
 
++ (instancetype)requestWithURL:(NSURL *)URL fileURL:(NSURL *)fileURL name:(NSString *)name {
+    return [self requestWithURL:URL fileURLs:@[fileURL] name:name];
+}
+
++ (instancetype)requestWithURL:(NSURL *)URL fileURL:(NSURL *)fileURL fileName:(NSString *)fileName name:(NSString *)name {
+    return [self requestWithURL:URL fileURLs:@[fileURL] fileNames:@[fileName] name:name];
+}
+
 + (instancetype)requestWithURL:(NSURL *)URL fileURLs:(NSArray *)fileURLs name:(NSString *)name {
     
     NSMutableArray *fileNames = [NSMutableArray arrayWithCapacity:fileURLs.count];
