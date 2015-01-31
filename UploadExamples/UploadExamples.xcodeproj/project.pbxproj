@@ -14,9 +14,9 @@
 		C2D67AC71A7CF001005989A2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2D67AC61A7CF001005989A2 /* Images.xcassets */; };
 		C2D67ACA1A7CF001005989A2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D67AC81A7CF001005989A2 /* LaunchScreen.xib */; };
 		C2D67AD61A7CF001005989A2 /* UploadExamplesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D67AD51A7CF001005989A2 /* UploadExamplesTests.m */; };
-		C2D67AE21A7CF075005989A2 /* NSMutableURLRequest+Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D67AE11A7CF075005989A2 /* NSMutableURLRequest+Upload.m */; };
 		C2D67AE51A7CF381005989A2 /* 111 in Resources */ = {isa = PBXBuildFile; fileRef = C2D67AE31A7CF381005989A2 /* 111 */; };
 		C2D67AE61A7CF381005989A2 /* 222 in Resources */ = {isa = PBXBuildFile; fileRef = C2D67AE41A7CF381005989A2 /* 222 */; };
+		C2D67AEA1A7D01E6005989A2 /* NSMutableURLRequest+Upload.m in Sources */ = {isa = PBXBuildFile; fileRef = C2D67AE91A7D01E6005989A2 /* NSMutableURLRequest+Upload.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,10 +43,10 @@
 		C2D67ACF1A7CF001005989A2 /* UploadExamplesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UploadExamplesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D67AD41A7CF001005989A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2D67AD51A7CF001005989A2 /* UploadExamplesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UploadExamplesTests.m; sourceTree = "<group>"; };
-		C2D67AE01A7CF075005989A2 /* NSMutableURLRequest+Upload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Upload.h"; sourceTree = "<group>"; };
-		C2D67AE11A7CF075005989A2 /* NSMutableURLRequest+Upload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Upload.m"; sourceTree = "<group>"; };
 		C2D67AE31A7CF381005989A2 /* 111 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 111; sourceTree = "<group>"; };
 		C2D67AE41A7CF381005989A2 /* 222 */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 222; sourceTree = "<group>"; };
+		C2D67AE81A7D01E6005989A2 /* NSMutableURLRequest+Upload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableURLRequest+Upload.h"; sourceTree = "<group>"; };
+		C2D67AE91A7D01E6005989A2 /* NSMutableURLRequest+Upload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+Upload.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 		C2D67AB81A7CF001005989A2 /* UploadExamples */ = {
 			isa = PBXGroup;
 			children = (
-				C2D67ADF1A7CF059005989A2 /* UploadRequest */,
+				C2D67AE71A7D01E6005989A2 /* UploadRequest */,
 				C2D67ABD1A7CF001005989A2 /* AppDelegate.h */,
 				C2D67ABE1A7CF001005989A2 /* AppDelegate.m */,
 				C2D67AC01A7CF001005989A2 /* ViewController.h */,
@@ -129,13 +129,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C2D67ADF1A7CF059005989A2 /* UploadRequest */ = {
+		C2D67AE71A7D01E6005989A2 /* UploadRequest */ = {
 			isa = PBXGroup;
 			children = (
-				C2D67AE01A7CF075005989A2 /* NSMutableURLRequest+Upload.h */,
-				C2D67AE11A7CF075005989A2 /* NSMutableURLRequest+Upload.m */,
+				C2D67AE81A7D01E6005989A2 /* NSMutableURLRequest+Upload.h */,
+				C2D67AE91A7D01E6005989A2 /* NSMutableURLRequest+Upload.m */,
 			);
-			path = UploadRequest;
+			name = UploadRequest;
+			path = ../../UploadRequest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,7 +243,7 @@
 			files = (
 				C2D67AC21A7CF001005989A2 /* ViewController.m in Sources */,
 				C2D67ABF1A7CF001005989A2 /* AppDelegate.m in Sources */,
-				C2D67AE21A7CF075005989A2 /* NSMutableURLRequest+Upload.m in Sources */,
+				C2D67AEA1A7D01E6005989A2 /* NSMutableURLRequest+Upload.m in Sources */,
 				C2D67ABC1A7CF001005989A2 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +435,7 @@
 				C2D67ADB1A7CF001005989A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C2D67ADC1A7CF001005989A2 /* Build configuration list for PBXNativeTarget "UploadExamplesTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +444,7 @@
 				C2D67ADE1A7CF001005989A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
