@@ -11,7 +11,17 @@
 @implementation NSMutableURLRequest (Upload)
 
 + (instancetype)requestWithURL:(NSURL *)URL fileURLs:(NSArray *)fileURLs name:(NSString *)name {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL cachePolicy:0 timeoutInterval:20.0f];
+    
+    NSMutableArray *fileNames = [NSMutableArray arrayWithCapacity:fileURLs.count];
+    [fileURLs enumerateObjectsUsingBlock:^(NSURL *fileURL, NSUInteger idx, BOOL *stop) {
+        [fileNames addObject:fileURL.path.lastPathComponent];
+    }];
+    
+    return [self requestWithURL:URL fileURLs:fileURLs fileNames:fileNames name:name];
+}
+
++ (instancetype)requestWithURL:(NSURL *)URL fileURLs:(NSArray *)fileURLs fileNames:(NSArray *)fileNames name:(NSString *)name {
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
     
     request.HTTPMethod = @"POST";
     
@@ -25,8 +35,8 @@
     [fileURLs enumerateObjectsUsingBlock:^(NSURL *fileURL, NSUInteger idx, BOOL *stop) {
         NSString *bodyStr = [NSString stringWithFormat:@"\n--%@\n", boundary];
         [data appendData:[bodyStr dataUsingEncoding:NSUTF8StringEncoding]];
-
-        NSString *fileName = fileURL.path.lastPathComponent;
+        
+        NSString *fileName = fileNames[idx];
         bodyStr = [NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\" \n", name, fileName];
         [data appendData:[bodyStr dataUsingEncoding:NSUTF8StringEncoding]];
         [data appendData:[@"Content-Type: application/octet-stream\n\n" dataUsingEncoding:NSUTF8StringEncoding]];

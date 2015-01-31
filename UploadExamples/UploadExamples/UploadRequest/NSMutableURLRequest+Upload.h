@@ -21,4 +21,16 @@
  */
 + (instancetype)requestWithURL:(NSURL *)URL fileURLs:(NSArray *)fileURLs name:(NSString *)name;
 
+/**
+ *  生成多文件上传的 multipart/form-data 请求
+ *
+ *  @param URL       负责上传的 url
+ *  @param fileURLs  要上传的本地文件 url 数组
+ *  @param fileNames 要保存在服务器上的文件名数组
+ *  @param name      服务器脚本字段名
+ *
+ *  @return multipart/form-data POST 请求
+ */
++ (instancetype)requestWithURL:(NSURL *)URL fileURLs:(NSArray *)fileURLs fileNames:(NSArray *)fileNames name:(NSString *)name;
+
 @end
