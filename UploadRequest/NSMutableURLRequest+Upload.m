@@ -41,20 +41,20 @@
     }
     
     [fileURLs enumerateObjectsUsingBlock:^(NSURL *fileURL, NSUInteger idx, BOOL *stop) {
-        NSString *bodyStr = [NSString stringWithFormat:@"\n--%@\n", boundary];
+        NSString *bodyStr = [NSString stringWithFormat:@"\r\n--%@\r\n", boundary];
         [data appendData:[bodyStr dataUsingEncoding:NSUTF8StringEncoding]];
         
         NSString *fileName = fileNames[idx];
-        bodyStr = [NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\" \n", name, fileName];
+        bodyStr = [NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\" \r\n", name, fileName];
         [data appendData:[bodyStr dataUsingEncoding:NSUTF8StringEncoding]];
-        [data appendData:[@"Content-Type: application/octet-stream\n\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [data appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
         
         [data appendData:[NSData dataWithContentsOfURL:fileURL]];
         
-        [data appendData:[@"\n" dataUsingEncoding:NSUTF8StringEncoding]];
+        [data appendData:[@"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
     }];
     
-    NSString *tailStr = [NSString stringWithFormat:@"--%@--\n", boundary];
+    NSString *tailStr = [NSString stringWithFormat:@"--%@--\r\n", boundary];
     [data appendData:[tailStr dataUsingEncoding:NSUTF8StringEncoding]];
     
     request.HTTPBody = data;
