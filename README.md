@@ -39,12 +39,12 @@
 ### 上传单个文件
 
 ```
-\n--boundary\n
-Content-Disposition: form-data; name="userfile"; filename="filename"\n 
-Content-Type: application/octet-stream\n\n 
+\r\n--boundary\r\n
+Content-Disposition: form-data; name="userfile"; filename="filename"\r\n 
+Content-Type: application/octet-stream\r\n\r\n 
 // 上传文件的二进制数据
-\n
---boundary--\n
+\r\n
+--boundary--\r\n
 ```
 
 #### 参数说明
@@ -56,17 +56,17 @@ Content-Type: application/octet-stream\n\n
 ### 上传多个文件
 
 ```
-\n--boundary\n
-Content-Disposition: form-data; name="userfile[]"; filename="filename1"\n 
-Content-Type: application/octet-stream\n\n 
+\r\n--boundary\r\n
+Content-Disposition: form-data; name="userfile[]"; filename="filename1"\r\n 
+Content-Type: application/octet-stream\r\n\r\n 
 // 第一个上传文件的二进制数据
-\n
-\n--boundary\n
-Content-Disposition: form-data; name="userfile[]"; filename="filename2"\n 
-Content-Type: application/octet-stream\n\n 
+\r\n
+\r\n--boundary\r\n
+Content-Disposition: form-data; name="userfile[]"; filename="filename2"\r\n 
+Content-Type: application/octet-stream\r\n\r\n 
 // 第一个上传文件的二进制数据
-\n
---boundary--\n
+\r\n
+--boundary--\r\n
 ```
 
 #### 参数说明
